@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Resto Map</title>
+	<link rel="icon" href="img/resto-icon.ico">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/restaurants.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="restaurants-map">
+	<div class="google-map"></div>
+
+	<div class="google-map-legend col-sm-2 hidden-xs">
+		<h2>Restaurants</h2>	
+
+		<ul class="google-map-categories">
+			<li class="google-map-category-filipino" data-location-category="filipino">
+				<div class="google-map-category-toggle"><span class="glyphicon glyphicon-ok"></span></div>
+				Filipino
+			</li>
+			<li class="google-map-category-greek" data-location-category="greek">
+				<div class="google-map-category-toggle"><span class="glyphicon glyphicon-ok"></span></div>
+				Greece
+			</li>
+			<li class="google-map-category-mexico" data-location-category="mexico">
+				<div class="google-map-category-toggle"><span class="glyphicon glyphicon-ok"></span></div>
+				Mexico
+			</li>
+			<li class="google-map-category-japanese" data-location-category="japanese">
+				<div class="google-map-category-toggle"><span class="glyphicon glyphicon-ok"></span></div>
+				Japan
+			</li>
+			<li class="google-map-category-italian" data-location-category="italian">
+				<div class="google-map-category-toggle"><span class="glyphicon glyphicon-ok"></span></div>
+				Italian
+			</li>
+			<li class="google-map-category-thai" data-location-category="thai">
+				<div class="google-map-category-toggle"><span class="glyphicon glyphicon-ok"></span></div>
+				Thailand
+			</li>
+			<li class="google-map-category-usa" data-location-category="usa">
+				<div class="google-map-category-toggle"><span class="glyphicon glyphicon-ok"></span></div>
+				USA
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtMdHQZQ63_ARIlmUVCNmM9U051iQo3BI"></script>
+<script src="../dist/categorizable-map.min.js"></script>
+<script src="js/RestaurantMap.js"></script>
+<script src="js/restaurants.js"></script>
+<script>
+$(function() {
+	var restaurantMap = new RestaurantMap('.google-map', 'img/');
+
+	$.each(markers, function(i, marker) {
+		restaurantMap.addMarker(
+			marker.category,
+			marker.lat,
+			marker.lng,
+			marker.object
+		);
+	});
+
+	restaurantMap.finalize();
+});
+</script>
+
+</body>
+</html>
