@@ -1,0 +1,44 @@
+
+
+1. git init = initialize directory for github repo
+2. git status = see how the repository status has changed
+3. git add octocat.txt = add file to repo
+4. git status
+5. git commit -m "Add cute octocat story" = command with a message describing what we've changed
+6. git add '*.txt' = when you add multiple same files
+7. git commit -m "Add all octocat text files"
+8. git log =  journal that remembers all the changes we've committed so far
+
+9. git remote add origin https://github.com/try-git/try_git.git 
+		= command takes a remote name & repository URL, which in your case is https://github.com/try-git/try_git.git.
+
+10. git push -u origin master
+		=  push command tells Git where to put our commits when we're ready
+		= The name of our remote is origin and the default local branch name is master. 
+		= The -u tells Git to remember the parameters, so that next time we can simply run git push and Git will know what to do
+
+11. git pull origin master
+		= check for changes on our GitHub repository and pull down any new changes
+
+12. git diff HEAD = we want the diff of our most recent commit, which we can refer to using the HEAD pointer
+13. git add octofamily/octodog.txt = new add file
+14. git diff --staged = run git diff with the --staged option to see the changes you just staged
+15. git reset octofamily/octodog.txt = You can unstage files by using the git reset command. Go ahead and remove octofamily/octodog.txt.
+
+16. git checkout -- octocat.txt
+		= git reset did a great job of unstaging octodog.txt, but you'll notice that he's still there. He's just not staged anymore. It would be great if we could go back to how things were before octodog came around and ruined the party.
+		= Files can be changed back to how they were at the last commit by using the command: git checkout -- <target>. 
+		Go ahead and get rid of all the changes since the last commit for octocat.text
+
+17. git branch clean_up = Branching Out
+						= create a branch called clean_up
+18. git checkout clean_up = Switching Branches
+19. git rm '*.txt' = remove all txt files from "clean_up" branch
+20. git commit -m "Remove all the cats" = commit the remove changes made
+21. git checkout master = switch to "master"branch
+22. git merge clean_up = in "master" branch, then merge the "clean_up" branch
+
+23. git branch -d clean_up = remove "clean_up" branch since  is not needed and merged to "master" branch
+
+24. git push 
+		= push everything you've been working on to your remote repository, and you're done!
